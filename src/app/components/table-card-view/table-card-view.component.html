@@ -4,7 +4,10 @@
         <div>
             <div class="pb-3">
 
-                <h5 class="  " [routerLink]="['/contact-info', contact.id]">{{ contact.name }}</h5>
+                <h5 class="hover:cursor-pointer"
+                style="font-weight: 500;"
+                 [routerLink]="['/contact-info', contact.id]">{{ contact.name }}
+                </h5>
             </div>
             <div class="flex flex-col gap-2">
                 <div class="text-[12px] ">{{ PhoneNumber(contact.id) }}</div>
