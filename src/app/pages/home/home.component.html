@@ -24,7 +24,7 @@
                     <img 
                         src="assets/svg/grid.svg" 
                         alt="card view" 
-                        class="w-6 h-6 mx-2"
+                        class="w-6 h-6 mx-2 hover:cursor-pointer"
                         [ngClass]="{
                             'grayscale-0': view() === 'card',
                             'grayscale': view() !== 'card',
@@ -40,7 +40,7 @@
                     <img 
                         src="assets/svg/menu.svg" 
                         alt="list view" 
-                        class="w-6 h-6 mx-2"
+                        class="w-6 h-6 mx-2 hover:cursor-pointer"
                         [ngClass]="{
                             'grayscale-0': view() === 'list',
                             'grayscale': view() !== 'list',
