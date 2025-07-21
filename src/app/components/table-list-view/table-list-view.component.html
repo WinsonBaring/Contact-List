@@ -1,0 +1,29 @@
+<table class="min-w-full bg-white border border-gray-200">
+    <thead class="secondary text-left">
+        <tr>
+            <th class="px-4 py-2 border-b secondary text-left font-normal">Name</th>
+            <th class="px-4 py-2 border-b secondary text-left font-normal">Contact Number</th>
+            <th class="px-4 py-2 border-b secondary text-left font-normal">Email Address</th>
+            <th class="px-4 py-2 border-b secondary text-left font-normal">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(contact of contacts; track contact.id) {
+        <tr
+        class="text-[14px] text-[#1d1b1e] "
+        >
+            <td class="px-4 py-2 border-b table-list-custom-underline" >
+                <a [routerLink]="['/contact-info', contact.id]"
+                    class="hover:underline hover:underline-offset-2 hover:decoration-black">
+                    {{contact.name}}
+                </a>
+            </td>
+            <td class="px-4 py-2 border-b">{{ PhoneNumber(contact.id) }}</td>
+            <td class="px-4 py-2 border-b">{{contact.email}}</td>
+            <td class="px-4 py-2 border-b">
+                <app-table-button [contact]="contact" />
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

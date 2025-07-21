@@ -1,0 +1,70 @@
+<div >
+    <!-- Header -->
+    <section class="flex flex-row gap-2 p-4 justify-between">
+        <div class="flex flex-col justify-between">
+            <h1 class="text-xl font-bold  mb-2" >Contact Information</h1>
+            <p class="text-sm ">Your list of contact appear here. To add a new
+                contact, click the Add New Contact button</p>
+        </div>
+        <!-- <button mat-flat-button (click)="openDialog()">Add New Contact</button> -->
+        <button mat-flat-button (click)="openContactForm()">Add New Contact</button>
+
+
+    </section>
+    <!-- {{testSubject2$ | async}} -->
+
+    <section class="flex flex-col gap-2 justify-between align-center">
+        <div class="flex justify-end">
+            <menu class="flex w-auto">
+
+                <button
+                    (click)="view.set('card')"
+                    class="rounded transition-colors duration-150 p-2"
+                >
+                    <img 
+                        src="assets/svg/grid.svg" 
+                        alt="card view" 
+                        class="w-6 h-6 mx-2"
+                        [ngClass]="{
+                            'grayscale-0': view() === 'card',
+                            'grayscale': view() !== 'card',
+                            'opacity-60': view() !== 'card',
+                            'text-gray-700': true
+                        }"
+                    >
+                </button>
+                <button
+                    (click)="view.set('list')"
+                    class="rounded transition-colors duration-150 p-2"
+                >
+                    <img 
+                        src="assets/svg/menu.svg" 
+                        alt="list view" 
+                        class="w-6 h-6 mx-2"
+                        [ngClass]="{
+                            'grayscale-0': view() === 'list',
+                            'grayscale': view() !== 'list',
+                            'opacity-60': view() !== 'list',
+                            'text-gray-700': true
+                        }"
+                    >
+                </button>
+                <!-- <li class="mx-2 card-view">grid view</li>
+            <li class="mx-2 list-view">list view</li> -->
+
+            </menu>
+        </div>
+        <!-- Table  List View -->
+        @if(view() === 'list') {
+        <app-table-list-view 
+        [contacts]="contacts()"
+        />
+        }
+        @if(view() === 'card') {
+        <app-table-card-view 
+        [contacts]="contacts()"
+        />
+        }
+
+    </section>
+</div>

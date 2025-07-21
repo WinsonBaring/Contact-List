@@ -1,0 +1,5 @@
+.table-list-custom-underline {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: #666666;
+}

@@ -1,0 +1,25 @@
+<div class="pt-8 space-y-5">
+    <button class="">
+        <div  class="inline-flex items-center mb-4 text-black font-bold ">
+
+            <a routerLink="/home" class="material-icons mr-2 ">arrow_back</a>
+            Contact Information
+        </div>
+    </button>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 bg-[#ffffff] p-4 rounded-lg border border-gray-300 py-8">
+
+        <div>
+            <p class="font-semibold text-[12px] text-gray-500">Full Name</p>
+            <p class="font-semibold text-[14px]">{{contact()[0].name}}</p>
+        </div>
+        <div>
+            <p class="font-semibold text-[12px] text-gray-500">Email</p>
+            <p class="font-semibold text-[14px]">{{contact()[0].email}}</p>
+        </div>
+        <div>
+            <p class="font-semibold text-[12px] text-gray-500">Contact Number</p>
+            <p class="font-semibold text-[14px]">{{phoneNumber()}}</p>
+        </div>
+    </div>
+</div>
