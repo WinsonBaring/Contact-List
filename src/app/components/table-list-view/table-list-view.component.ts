@@ -30,10 +30,6 @@ export class TableListViewComponent {
 
   readonly dialog = inject(MatDialog);
 
-  PhoneNumber(id:string){
-    const customPhone = this.contacts.find((contact: Contact) => contact.id === id);
-    return customPhone?.contactNumber.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
-  }
 
   // ngOnInit() {
   //   const subscription = this.contactService.getContacts().subscribe((contacts) => {

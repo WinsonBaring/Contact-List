@@ -3,3 +3,11 @@
     text-underline-offset: 2px;
     text-decoration-color: #666666;
 }
+.custom_font{
+    font-size: 14px;
+    font-weight: 400;
+}
+
+table tbody tr:not(:last-child) td {
+    border-bottom: 1px solid theme('colors.gray.200'); /* Re-apply the border you want */
+  }

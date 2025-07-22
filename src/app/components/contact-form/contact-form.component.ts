@@ -32,7 +32,7 @@ export class ContactFormComponent {
 
   contactForm: FormGroup = this.fb.group({
     name: ['', [Validators.required]],
-    phone: ['', [
+    contactNumber: ['', [
       Validators.required,
       Validators.pattern(/^[0-9]{11}$/)
     ]],
