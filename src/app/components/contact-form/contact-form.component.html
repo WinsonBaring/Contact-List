@@ -1,7 +1,9 @@
 <form [formGroup]="contactForm" 
 (ngSubmit)="variant() === 'add' ? onSubmitAddContact() : onSubmitUpdateContact()"
     class="flex flex-col gap-4 p-6 w-[22rem] max-w-md mx-auto "
-    aria-labelledby="contactFormTitle">
+    aria-labelledby="contactFormTitle"
+    autocomplete="on"
+    >
 
     <!-- <div class="flex flex-col gap-1">
         <label id="nameLabel" for="name" class=" text-[15px] ">Name</label>
