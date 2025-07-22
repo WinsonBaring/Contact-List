@@ -18,7 +18,7 @@
                     {{contact.name}}
                 </a>
             </td>
-            <td class="px-4 py-2 border-b">{{ PhoneNumber(contact.id) }}</td>
+            <td class="px-4 py-2 border-b">{{ contact.contactNumber | phoneNumberFormat }}</td>
             <td class="px-4 py-2 border-b">{{contact.email}}</td>
             <td class="px-4 py-2 border-b">
                 <app-table-button [contact]="contact" />

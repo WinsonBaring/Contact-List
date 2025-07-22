@@ -6,8 +6,8 @@ import { catchError, map, shareReplay, switchMap, tap } from 'rxjs/operators';
 export interface Contact {
   id: string; // JSON server usually generates string IDs
   name: string;
+  contactNumber: string;
   email: string;
-  phone: string;
 }
 
 @Injectable({
@@ -61,6 +61,15 @@ export class ContactService {
   // --- Public Method for Components to Get Contacts ---
   public getContacts(): Observable<Contact[]> {
     return this._contacts$;
+  }
+  public getContactById(id: string): Observable<Contact> {
+    return this.http.get<Contact>(`${this.apiUrl}/${id}`).pipe(
+      map(data => data || {} as Contact),
+      catchError((error: any) => {
+        console.error('HTTP getContactById Error:', error);
+        return throwError(() => new Error(error.message || 'Failed to fetch contact by ID.'));
+      })
+    );
   }
 
   // --- Public Method to Trigger Revalidation from Anywhere ---

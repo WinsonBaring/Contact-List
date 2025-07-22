@@ -12,6 +12,7 @@ import { Contact, ContactService } from '@/service/contact.service';
 import { BehaviorSubject, Subject, tap } from 'rxjs';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ContactFormComponent } from '@/components/contact-form/contact-form.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-home',

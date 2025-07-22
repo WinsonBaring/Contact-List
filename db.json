@@ -1,64 +1,40 @@
 {
-  "contacts": [
-    {
-      "name": "Charlie Brownnnn",
-      "phone": "45678901234",
-      "email": "charlie.brown@example.com",
-      "id": "5"
-    },
-    {
-      "id": "6",
-      "name": "Diana Prince",
-      "email": "diana.prince@example.com",
-      "phone": "56789012345"
-    },
-    {
-      "id": "7",
-      "name": "Eve Adams",
-      "email": "eve.adams@example.com",
-      "phone": "67890123456"
-    },
-    {
-      "id": "8",
-      "name": "Frank Miller",
-      "email": "frank.miller@example.com",
-      "phone": "78901234567"
-    },
-    {
-      "id": "4a59",
-      "name": "winson ",
-      "phone": "09234234333",
-      "email": "askldfjaskdf@gmail.com"
-    },
-    {
-      "id": "d924",
-      "name": "winson baring",
-      "phone": "09234234234",
-      "email": "aksdlfasdjfk@gmail.com"
-    },
-    {
-      "id": "266e",
-      "name": "Frank Miller",
-      "phone": "78901234567",
-      "email": "frank.miller@example.com"
-    },
-    {
-      "id": "eaf3",
-      "name": "asdfasdfasdfasdf",
-      "phone": "09827349872",
-      "email": "asklfdjaskldjf2@gmail.com"
-    },
-    {
-      "id": "c17c",
-      "name": "wialsdkfjasdlf",
-      "phone": "09239482342",
-      "email": "ksadfjaklsdf@gmail.com"
-    },
-    {
-      "id": "7cc3",
-      "name": "wialsdkfjasdlf",
-      "phone": "09239482342",
-      "email": "ksadfjaklsdf@gmail.com"
-    }
-  ]
-}
+    "contacts": [
+      {
+        "id": "0002",
+        "name": "Dave Grohl",
+        "contactNumber": "09998765422",
+        "email": "dave@foo.com"
+      },
+      {
+        "name": "Brendon Urie",
+        "contactNumber": "09123433244",
+        "email": "monalisa@patd.com",
+        "id": "0003"
+      },
+      {
+        "id": "0004",
+        "name": "Hayley Williams",
+        "contactNumber": "09877877822",
+        "email": "hayley@para.mores"
+      },
+      {
+        "name": "Tyler Josep",
+        "contactNumber": "09273544544",
+        "email": "tyler@topilots.com",
+        "id": "0005"
+      },
+      {
+        "id": "0006",
+        "name": "Billie Joe Armstrong",
+        "contactNumber": "09999991234",
+        "email": "billie@greenday.cos"
+      },
+      {
+        "id": "0007",
+        "name": "Alex Gaskarth",
+        "contactNumber": "09998767652",
+        "email": "alex@atl.coms"
+      }
+    ]
+  }

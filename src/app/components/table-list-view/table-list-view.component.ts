@@ -5,11 +5,13 @@ import { MatDialog } from '@angular/material/dialog';
 import { TableButtonComponent } from '@/components/table-button/table-button.component';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
+import { PhoneNumberFormatPipe } from '@/pipes/phone-number-format.pipe';
 
 
 @Component({
   selector: 'app-table-list-view',
   imports: [
+    PhoneNumberFormatPipe,
     CommonModule,
     RouterLink,
     TableButtonComponent
@@ -30,7 +32,7 @@ export class TableListViewComponent {
 
   PhoneNumber(id:string){
     const customPhone = this.contacts.find((contact: Contact) => contact.id === id);
-    return customPhone?.phone.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+    return customPhone?.contactNumber.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
   }
 
   // ngOnInit() {

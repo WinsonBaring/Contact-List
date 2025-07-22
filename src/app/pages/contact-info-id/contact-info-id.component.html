@@ -1,6 +1,6 @@
 <div class="pt-8 space-y-5">
     <button class="">
-        <div  class="inline-flex items-center mb-4 text-black font-bold ">
+        <div  class="inline-flex items-center mb-4 text-black custom_font">
 
             <a routerLink="/home" class="material-icons mr-2 ">arrow_back</a>
             Contact Information
@@ -11,15 +11,15 @@
 
         <div>
             <p class="custom_font text-[12px] text-gray-500">Full Name</p>
-            <p class="custom_font text-[14px]">{{get_contact()?.name}}</p>
+            <p class="custom_font text-[14px]">{{contact().name}}</p>
         </div>
         <div>
             <p class="custom_font 2px] text-gray-500">Email</p>
-            <p class="custom_font text-[14px]">{{get_contact()?.email}}</p>
+            <p class="custom_font text-[14px]">{{contact().email}}</p>
         </div>
         <div>
             <p class="custom_font text-[12px] text-gray-500">Contact Number</p>
-            <p class="custom_font text-[14px]">{{phoneNumber()}}</p>
+            <p class="custom_font text-[14px]">{{contact().contactNumber | phoneNumberFormat}}</p>
         </div>
     </div>
 </div>

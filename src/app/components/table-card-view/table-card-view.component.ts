@@ -5,9 +5,11 @@ import { TableButtonComponent } from '@/components/table-button/table-button.com
 import { Contact } from '@/service/contact.service';
 import { MatDialog } from '@angular/material/dialog';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { PhoneNumberFormatPipe } from '@/pipes/phone-number-format.pipe';
 @Component({
   selector: 'app-table-card-view',
   imports: [
+    PhoneNumberFormatPipe,
     RouterLink,
     TableButtonComponent
   ],
@@ -23,10 +25,6 @@ export class TableCardViewComponent {
   // contacts = toSignal(this.contactService.getContacts(),{initialValue:[]});
   contact: any;
 
-  PhoneNumber(id:string){
-    const customPhone = this.contacts.find((contact: Contact) => contact.id === id);
-    return customPhone?.phone.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
-  }
 
   // ngOnInit() {
   //   const subscription = this.contactService.getContacts().subscribe((contacts) => {
