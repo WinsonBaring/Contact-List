@@ -1,6 +1,6 @@
 <div >
     <!-- Header -->
-    <section class="flex flex-row gap-2 p-4 justify-between">
+    <section class="flex flex-row gap-2 pt-10    justify-between">
         <div class="flex flex-col justify-between">
             <h1 class="text-xl  mb-2"
             style="font-weight: 500;"
@@ -17,16 +17,16 @@
 
     <section class="flex flex-col gap-2 justify-between align-center">
         <div class="flex justify-end">
-            <menu class="flex w-auto pt-4" >
+            <menu class="flex w-auto " >
 
                 <button
                     (click)="view.set('card')"
-                    class="rounded transition-colors duration-150 "
+                    class="rounded transition-colors duration-150 hover:bg-gray-200 p-1"
                 >
                     <img 
                         src="assets/svg/grid.svg" 
                         alt="card view" 
-                        class="w-6 h-6 mx-2 hover:cursor-pointer"
+                        class="w-5 h-5  hover:cursor-pointer"
                         [ngClass]="{
                             'grayscale-0': view() === 'card',
                             'grayscale': view() !== 'card',
@@ -37,12 +37,12 @@
                 </button>
                 <button
                     (click)="view.set('list')"
-                    class="rounded transition-colors duration-150 "
+                    class="rounded transition-colors duration-150 hover:bg-gray-200 p-1"
                 >
                     <img 
                         src="assets/svg/menu.svg" 
                         alt="list view" 
-                        class="w-6 h-6 mx-2 hover:cursor-pointer"
+                        class="w-5 h-5  hover:cursor-pointer"
                         [ngClass]="{
                             'grayscale-0': view() === 'list',
                             'grayscale': view() !== 'list',

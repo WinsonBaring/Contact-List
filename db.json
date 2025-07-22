@@ -1,7 +1,7 @@
 {
   "contacts": [
     {
-      "name": "Brendon Uriey",
+      "name": "Brendon Urie",
       "contactNumber": "09123433244",
       "email": "monalisa@patd.com",
       "id": "0003"
@@ -41,12 +41,6 @@
       "name": "Winson Baring",
       "contactNumber": "09760392357",
       "email": "Winsonaslkdfj@gmail.com"
-    },
-    {
-      "id": "ae08",
-      "name": "Brendon Urie",
-      "contactNumber": "09123433244",
-      "email": "monalisa@patd.com"
     }
   ]
 }
