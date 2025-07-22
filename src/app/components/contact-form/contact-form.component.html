@@ -5,11 +5,13 @@
     <div class="flex flex-col gap-1">
         <label id="nameLabel" for="name" class=" text-[15px] ">Name</label>
         <input type="text" formControlName="name" id="name"
-            class="focus-visible:outline-none p-3 border-1 border-gray-300 rounded-md"
+            class="focus-visible:outline-none p-3 border-1 border-gray-300 rounded-md focus:border-violet-500"
+            [class.border-red-300]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched"
             [ngClass]="{
                 'focus:border-red-500 border-red-300': contactForm.get('name')?.invalid && contactForm.get('name')?.touched,
                 'focus:border-violet-500': !(contactForm.get('name')?.invalid && contactForm.get('name')?.touched)
             }"
+            aria-label="nameLabel"
             aria-labelledby="nameLabel">
         @if(contactForm.get('name')?.invalid && contactForm.get('name')?.touched ){
             <div class="text-red-500 text-[12px] pl-4" id="nameError" aria-live="polite">
@@ -27,6 +29,8 @@
                 'focus:border-red-500 border-red-300': contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched,
                 'focus:border-violet-500': !(contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched)
             }"
+
+            aria-label="phoneLabel"
             aria-labelledby="phoneLabel">
         @if(contactForm.get('phone')?.touched && contactForm.get('phone')?.invalid) {
             @if(contactForm.get('phone')?.errors?.['required'] && contactForm.get('phone')?.value?.length === 0) {
@@ -51,6 +55,8 @@
                 'focus:border-red-500 border-red-300': contactForm.get('email')?.invalid && contactForm.get('email')?.touched,
                 'focus:border-violet-500': !(contactForm.get('email')?.invalid && contactForm.get('email')?.touched)
             }"
+
+            aria-label="emailLabel"
             aria-labelledby="emailLabel">
         @if(contactForm.get('email')?.invalid && contactForm.get('email')?.touched) {
             @if(contactForm.get('email')?.errors?.['required'] && contactForm.get('email')?.value?.length === 0) {

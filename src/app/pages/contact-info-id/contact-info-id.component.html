@@ -10,16 +10,16 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 bg-[#ffffff] p-4 rounded-lg border border-gray-300 py-8">
 
         <div>
-            <p class="font-semibold text-[12px] text-gray-500">Full Name</p>
-            <p class="font-semibold text-[14px]">{{contact()[0].name}}</p>
+            <p class="custom_font text-[12px] text-gray-500">Full Name</p>
+            <p class="custom_font text-[14px]">{{get_contact()?.name}}</p>
         </div>
         <div>
-            <p class="font-semibold text-[12px] text-gray-500">Email</p>
-            <p class="font-semibold text-[14px]">{{contact()[0].email}}</p>
+            <p class="custom_font 2px] text-gray-500">Email</p>
+            <p class="custom_font text-[14px]">{{get_contact()?.email}}</p>
         </div>
         <div>
-            <p class="font-semibold text-[12px] text-gray-500">Contact Number</p>
-            <p class="font-semibold text-[14px]">{{phoneNumber()}}</p>
+            <p class="custom_font text-[12px] text-gray-500">Contact Number</p>
+            <p class="custom_font text-[14px]">{{phoneNumber()}}</p>
         </div>
     </div>
 </div>

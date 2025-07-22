@@ -17,8 +17,11 @@ export class ContactInfoIdComponent {
   contactService = inject(ContactService);
   contact = toSignal(this.contactService.getContacts(),{initialValue:[] as Contact[]});
   destroyRef = inject(DestroyRef);
+  get_contact(){
+    return this.contact().find((contact)=>contact.id === this.user_id);
+  }
   phoneNumber = computed(()=>{
-    return this.contact()[0].phone.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+    return this.get_contact()?.phone.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
   })
   // ngOnInit() {
   //   const subscription = this.contactService.getContact(this.user_id).subscribe((contact) => {

@@ -36,6 +36,15 @@ export class ContactService {
       shareReplay({ bufferSize: 1, refCount: true })
     );
   }
+  getData(){
+    return this.http.get<Contact[]>(this.apiUrl).pipe(
+      map(data => data || []), // Ensure it returns an empty array if data is null/undefined
+      catchError((error: any) => {
+        console.error('HTTP getContacts Error:', error);
+        return throwError(() => new Error(error.message || 'Failed to fetch contacts from JSON server.'));
+      })
+    );
+  }
 
   // --- Actual Data Fetching Logic (private) ---
   private getContactsDataFromServer(): Observable<Contact[]> { // CHANGED: Renamed method

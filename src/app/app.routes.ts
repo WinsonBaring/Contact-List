@@ -3,6 +3,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from '@/pages/home/home.component';
 import { ContactInfoIdComponent } from '@/pages/contact-info-id/contact-info-id.component';
 import { NotFoundComponent } from '@/pages/not-found/not-found.component';
+import { SandboxComponent } from '@/pages/sandbox/sandbox.component';
 
 export const routes: Routes = [
   {
@@ -23,7 +24,11 @@ export const routes: Routes = [
     component: ContactInfoIdComponent
   },
   {
+    path: 'sandbox',
+    component: SandboxComponent
+  },
+  {
     path: '**',
     component: NotFoundComponent,
-  }
+  },
 ];
