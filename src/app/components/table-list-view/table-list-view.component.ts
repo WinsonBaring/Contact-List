@@ -6,12 +6,13 @@ import { TableButtonComponent } from '@/components/table-button/table-button.com
 import { toSignal } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
 import { PhoneNumberFormatPipe } from '@/pipes/phone-number-format.pipe';
-
+import { MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'app-table-list-view',
   imports: [
     PhoneNumberFormatPipe,
+    MatTableModule,
     CommonModule,
     RouterLink,
     TableButtonComponent

@@ -1,13 +1,7 @@
 {
   "contacts": [
     {
-      "name": "Dave Gro",
-      "contactNumber": "09998765422",
-      "email": "dave@foo.com",
-      "id": "0002"
-    },
-    {
-      "name": "Brendon Urie",
+      "name": "Brendon Ur",
       "contactNumber": "09123433244",
       "email": "monalisa@patd.com",
       "id": "0003"
@@ -37,10 +31,10 @@
       "email": "alex@atl.coms"
     },
     {
-      "id": "e973",
-      "name": "winson",
+      "id": "fc1b",
+      "name": "winsonbaring",
       "contactNumber": "09760392357",
-      "email": "winsonbaring10@gmial.com"
+      "email": "winsonbaring10@gmail.com"
     }
   ]
 }

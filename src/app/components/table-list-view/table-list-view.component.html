@@ -1,29 +1,39 @@
-<table class="min-w-full bg-white border border-gray-200">
-    <thead class="secondary text-left">
-        <tr>
-            <th class="px-4 py-2 border-b secondary text-left custom_font">Name</th>
-            <th class="px-4 py-2 border-b secondary text-left custom_font">Contact Number</th>
-            <th class="px-4 py-2 border-b secondary text-left custom_font">Email Address</th>
-            <th class="px-4 py-2 border-b secondary text-left custom_font">Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @for(contact of contacts; track contact.id) {
-        <tr
-        class="text-[14px] text-[#1d1b1e] "
-        >
-            <td class="px-4 py-2 border-b table-list-custom-underline" >
-                <a [routerLink]="['/contact-info', contact.id]"
-                    class="hover:underline hover:underline-offset-2 hover:decoration-black">
-                    {{contact.name}}
-                </a>
+<div class="table-responsive ">
+    <table mat-table [dataSource]="contacts" class="mat-elevation-z8 bg-white">
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef >Name</th>
+            <td mat-cell *matCellDef="let contact">
+                <a class="table-link text-dark" 
+                class="underline"
+                [routerLink]="['/contact-info', contact.id]">{{ contact.name }}</a>
             </td>
-            <td class="px-4 py-2 border-b">{{ contact.contactNumber | phoneNumberFormat }}</td>
-            <td class="px-4 py-2 border-b">{{contact.email}}</td>
-            <td class="px-4 py-2 border-b">
+        </ng-container>
+
+        <!-- Contact Number Column -->
+        <ng-container matColumnDef="contactNumber">
+            <th mat-header-cell *matHeaderCellDef>Contact Number</th>
+            <td mat-cell *matCellDef="let contact">{{ contact.contactNumber | phoneNumberFormat}}</td>
+        </ng-container>
+
+        <!-- Email Address Column -->
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef>Email Address</th>
+            <td mat-cell *matCellDef="let contact">{{ contact.email }}</td>
+        </ng-container>
+
+        <!-- Action Column -->
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef>Action</th>
+            <td mat-cell *matCellDef="let contact">
                 <app-table-button [contact]="contact" />
             </td>
-        </tr>
-        }
-    </tbody>
-</table>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="['name', 'contactNumber', 'email', 'action']"
+        class="custom_style"
+        ></tr>
+        <tr mat-row *matRowDef="let row; columns: ['name', 'contactNumber', 'email', 'action'];"></tr>
+    </table>
+</div>
