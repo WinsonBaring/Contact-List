@@ -26,7 +26,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-  modalState = 'close'
   view = signal<'list' | 'card'>('card');
   readonly dialog = inject(MatDialog);
   contactService = inject(ContactService);

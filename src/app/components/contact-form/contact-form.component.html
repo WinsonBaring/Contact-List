@@ -28,7 +28,8 @@
                formControlName="name"
                id="nameInput" 
                autocomplete="name" 
-               class="focus-visible:outline-none p-3 border-1 border-black rounded-md focus:border-violet-500"
+               class="focus-visible:outline-none p-3 border-1 border-black rounded-md focus:border-violet-500 custom_css"
+
                [class.border-red-300]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched"
                [ngClass]="{
                    'focus:border-red-500 border-red-300': contactForm.get('name')?.invalid && contactForm.get('name')?.touched,
@@ -47,7 +48,7 @@
 
         <input type="text" formControlName="contactNumber" id="contactNumberInput"
             autocomplete="contactNumber"
-            class="focus-visible:outline-none p-3 border-1 border-black rounded-md focus:border-violet-500"
+            class="focus-visible:outline-none p-3 border-1 border-black rounded-md focus:border-violet-500 custom_css"
             [class.border-red-300]="contactForm.get('contactNumber')?.invalid && contactForm.get('contactNumber')?.touched"
             [ngClass]="{
                 'focus:border-red-500 border-red-300': contactForm.get('contactNumber')?.invalid && contactForm.get('contactNumber')?.touched,
@@ -73,7 +74,7 @@
         <!-- <label id="emailLabel" for="email" class="text-gray-600 text-[15px] font-semibold">Email Address</label> -->
         <input type="text" formControlName="email" id="emailInput"
             autocomplete="email"
-            class="focus-visible:outline-none p-3 border-1 border-black rounded-md focus:border-violet-500"
+            class="focus-visible:outline-none p-3 border-1 border-black rounded-md focus:border-violet-500 custom_css"
             [class.border-red-300]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
             [ngClass]="{
                 'focus:border-red-500 border-red-300': contactForm.get('email')?.invalid && contactForm.get('email')?.touched,

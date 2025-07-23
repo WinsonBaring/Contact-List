@@ -30,6 +30,8 @@ export class ContactFormComponent {
   readonly contact = model(this.data.contact);
   readonly variant = model(this.data.variant);
 
+  public upBorder:boolean = false;
+
   contactForm: FormGroup = this.fb.group({
     name: ['', [Validators.required]],
     contactNumber: ['', [
@@ -55,6 +57,9 @@ export class ContactFormComponent {
   }
 
 
+  upTheBorder(){
+    this.upBorder = true 
+  }
   isValidEmail() {
     const value = this.contactForm.get('email')?.value;
     const generalEmailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
