@@ -1,117 +1,52 @@
-<form [formGroup]="contactForm" 
-(ngSubmit)="variant() === 'add' ? onSubmitAddContact() : onSubmitUpdateContact()"
-    class="flex flex-col gap-4 p-6 w-[22rem] max-w-md mx-auto "
-    aria-labelledby="contactFormTitle"
-    autocomplete="on"
-    >
+<mat-dialog-content class="d-flex flex-column bg-white">
+    <form [formGroup]="form" (ngSubmit)="variant() === 'add' ? onSubmitAddContact() : onSubmitUpdateContact()"
+        aria-labelledby="form-title">
 
-    <!-- <div class="flex flex-col gap-1">
-        <label id="nameLabel" for="name" class=" text-[15px] ">Name</label>
-        <input type="text" formControlName="name" id="name"
-            class="focus-visible:outline-none p-3 border-1 border-gray-300 rounded-md focus:border-violet-500"
-            [class.border-red-300]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched"
-            [ngClass]="{
-                'focus:border-red-500 border-red-300': contactForm.get('name')?.invalid && contactForm.get('name')?.touched,
-                'focus:border-violet-500': !(contactForm.get('name')?.invalid && contactForm.get('name')?.touched)
-            }"
-            aria-labelledby="nameLabel">
-        @if(contactForm.get('name')?.invalid && contactForm.get('name')?.touched ){
-            <div class="text-red-500 text-[12px] pl-4" id="nameError" aria-live="polite">
-                Please enter a name
+        <div class="flex flex-col mb-4">
+
+            <p class="py-0 my-0">Name</p>
+            <mat-form-field appearance="outline" class="wide-field" aria-label="Name">
+                <input matInput formControlName="name" />
+                @if(form.get('name')?.hasError('required') && form.get('name')?.touched) {
+                <mat-error class="font-size-small">Please enter a name</mat-error>
+                }
+            </mat-form-field>
+        </div>
+
+        <div class="flex flex-col mb-4">
+
+            <p class="py-0 my-0">Contact Number</p>
+            <mat-form-field appearance="outline" class=" wide-field" aria-label="Contact Number">
+                <input matInput formControlName="contactNumber" />
+                @if(form.get('contactNumber')?.hasError('required') && form.get('contactNumber')?.touched) {
+                <mat-error class="font-size-small">Please enter a contact number</mat-error>
+                } @else if(form.get('contactNumber')?.hasError('pattern') && form.get('contactNumber')?.touched) {
+                <mat-error class="font-size-small">Only 11 digits allowed</mat-error>
+                }
+            </mat-form-field>
+
+        </div>
+        <div class="flex flex-col">
+
+            <p class="py-0 my-0">Email Address</p>
+            <mat-form-field appearance="outline" class="mb-3 wide-field w-full" aria-label="Email Address">
+                <input matInput formControlName="email" />
+                @if(form.get('email')?.hasError('required') && form.get('email')?.touched) {
+                <mat-error class="font-size-small">Please enter an email address</mat-error>
+                } @else if(form.get('email')?.hasError('pattern') && form.get('email')?.touched) {
+                <mat-error class="font-size-small">Please enter a valid email address</mat-error>
+                }
+            </mat-form-field>
+        </div>
+
+
+        <!-- Buttons inside the form -->
+            <div class="flex justify-between w-full">
+                <button mat-stroked-button type="button" (click)="onNoClick()" aria-label="Cancel">Cancel</button>
+                <button mat-flat-button color="primary" type="submit" [disabled]="form.invalid" aria-label="Submit">
+                    {{ variant() === 'add' ? 'Add Contact' : 'Save Changes' }}
+                </button>
             </div>
-        }
-    </div> -->
-    <div class="flex flex-col gap-1">
-        <!-- label's 'for' must match input's 'id' -->
-        <label id="nameLabel" for="nameInput" class=" text-[15px] ">Name</label>
-        <input type="text"
-               formControlName="name"
-               id="nameInput" 
-               autocomplete="name" 
-               class="focus-visible:outline-none p-3 border-1 border-black rounded-md focus:border-violet-500 custom_css"
 
-               [class.border-red-300]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched"
-               [ngClass]="{
-                   'focus:border-red-500 border-red-300': contactForm.get('name')?.invalid && contactForm.get('name')?.touched,
-                   'focus:border-violet-500': !(contactForm.get('name')?.invalid && contactForm.get('name')?.touched)
-               }"
-               aria-labelledby="nameLabel"> <!-- Correctly points to the label's ID -->
-        @if(contactForm.get('name')?.invalid && contactForm.get('name')?.touched ){
-            <div class="text-red-500 text-[12px] pl-4" id="nameError" aria-live="polite">
-                Please enter a name
-            </div>
-        }
-    </div>
-    <div class="flex flex-col gap-1">
-        <label id="contactNumberLabel" for="contactNumberInput" class=" text-[15px] ">Contact Number</label>
-        <!-- <label id="phoneLabel" for="phone" class="text-gray-600 text-[15px] font-semibold">Contact Number</label> -->
-
-        <input type="text" formControlName="contactNumber" id="contactNumberInput"
-            autocomplete="contactNumber"
-            class="focus-visible:outline-none p-3 border-1 border-black rounded-md focus:border-violet-500 custom_css"
-            [class.border-red-300]="contactForm.get('contactNumber')?.invalid && contactForm.get('contactNumber')?.touched"
-            [ngClass]="{
-                'focus:border-red-500 border-red-300': contactForm.get('contactNumber')?.invalid && contactForm.get('contactNumber')?.touched,
-                'focus:border-violet-500': !(contactForm.get('contactNumber')?.invalid && contactForm.get('contactNumber')?.touched)
-            }"
-
-            aria-labelledby="contactNumberLabel">
-        @if(contactForm.get('contactNumber')?.touched && contactForm.get('contactNumber')?.invalid) {
-            @if(contactForm.get('contactNumber')?.errors?.['required'] && contactForm.get('contactNumber')?.value?.length === 0) {
-            <div class="text-red-500 text-[12px] pl-4" id="contactNumberError" aria-live="polite">
-                Please enter a contact number
-            </div>
-            }
-            @else if(!is11Digits()) {
-            <div class="text-red-500 text-[12px] pl-4" id="contactNumberDigitsError" aria-live="polite">
-                Only 11 digits allowed
-            </div>
-            }
-        }
-    </div>
-    <div class="flex flex-col gap-1">
-        <label id="emailLabel" for="emailInput" class=" text-[15px] ">Email Address</label>
-        <!-- <label id="emailLabel" for="email" class="text-gray-600 text-[15px] font-semibold">Email Address</label> -->
-        <input type="text" formControlName="email" id="emailInput"
-            autocomplete="email"
-            class="focus-visible:outline-none p-3 border-1 border-black rounded-md focus:border-violet-500 custom_css"
-            [class.border-red-300]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
-            [ngClass]="{
-                'focus:border-red-500 border-red-300': contactForm.get('email')?.invalid && contactForm.get('email')?.touched,
-                'focus:border-violet-500': !(contactForm.get('email')?.invalid && contactForm.get('email')?.touched)
-            }"
-            aria-labelledby="emailLabel">
-        @if(contactForm.get('email')?.invalid && contactForm.get('email')?.touched) {
-            @if(contactForm.get('email')?.errors?.['required'] && contactForm.get('email')?.value?.length === 0) {
-                <div class="text-red-500 text-[12px] pl-4" id="emailError" aria-live="polite">
-                    Please enter an email address
-                </div>
-            }
-            @else if(!isValidEmail()) {
-                <div class="text-red-500 text-[12px] pl-4" id="emailValidError" aria-live="polite">
-                    Please enter a valid email address
-                </div>
-            }
-        }
-    </div>
-
-    <!-- <div class="text-xl">
-        @if(isValidEmail()){
-        is valid
-        }@else{
-
-        is invalid
-        }
-    </div> -->
-    <div class="flex flex-row justify-between gap-2 mt-4">
-        <button mat-stroked-button type="button" class="add-contact-custom-border" (click)="onNoClick()" aria-label="Cancel">Cancel</button>
-        @if(variant() === 'add'){
-        <button mat-flat-button color="primary" type="submit" [disabled]="contactForm.invalid"
-            class="bg-violet-500 text-white rounded-md p-2" aria-label="Add Contact">Add Contact</button>
-        }
-        @if(variant() === 'update'){
-        <button mat-flat-button color="primary" type="submit" [disabled]="contactForm.invalid"
-            class="bg-violet-500 text-white rounded-md p-2" aria-label="Save Changes">Save Changes</button>
-        }
-    </div>
-</form>
+    </form>
+</mat-dialog-content>

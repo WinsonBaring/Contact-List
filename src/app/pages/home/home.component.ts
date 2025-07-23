@@ -34,6 +34,8 @@ export class HomeComponent {
 
   openContactForm(): void {
     this.dialog.open(ContactFormComponent,{
+      width:"22rem",
+      height:"27rem",
       data:{
         contact: {} as Contact,
         variant: 'add'

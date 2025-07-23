@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DeleteContactComponent } from '@/components/delete-contact/delete-contact.component';
 import { ContactFormComponent } from '../contact-form/contact-form.component';
 import { MatIconModule } from '@angular/material/icon';
+import { withDebugTracing } from '@angular/router';
 @Component({
   selector: 'app-table-button',
   imports: [MatIconModule],
@@ -15,6 +16,8 @@ export class TableButtonComponent {
 
   openUpdateDialog() {
     this.dialog.open(ContactFormComponent,{
+      width:"22rem",
+      height:"27rem",
       data: {
         contact: this.contact,
         variant: 'update'
