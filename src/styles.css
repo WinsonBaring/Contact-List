@@ -12,15 +12,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
     /* --mat-sys-secondary: #4f0077; */
 }
 
-.primary {
-    /* color: #ffffff; */
-    /* background-color: #7d00fa; */
-}
-
-.secondary {
-    color: #ffffff;
-    background-color: #4f0077;
-}
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
