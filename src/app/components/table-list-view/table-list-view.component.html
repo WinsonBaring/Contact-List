@@ -1,4 +1,4 @@
-<div class="table-responsive ">
+<div class="table-responsive bg-white">
     <table mat-table [dataSource]="contacts" class="mat-elevation-z8 bg-white">
 
         <!-- Name Column -->
@@ -32,8 +32,13 @@
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="['name', 'contactNumber', 'email', 'action']"
-        class="custom_style"
+        id=""
+        class="custom_style "
         ></tr>
-        <tr mat-row *matRowDef="let row; columns: ['name', 'contactNumber', 'email', 'action'];"></tr>
+        <tr mat-row 
+        id="custom_bg"
+        class="bg-white"
+
+        *matRowDef="let row; columns: ['name', 'contactNumber', 'email', 'action'];"></tr>
     </table>
 </div>

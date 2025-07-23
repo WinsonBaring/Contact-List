@@ -39,7 +39,7 @@ export class ContactService {
   getData(){
     return this.http.get<Contact[]>(this.apiUrl).pipe(
       map(data => data || []), // Ensure it returns an empty array if data is null/undefined
-      catchError((error: any) => {
+      catchError((error ) => {
         console.error('HTTP getContacts Error:', error);
         return throwError(() => new Error(error.message || 'Failed to fetch contacts from JSON server.'));
       })
@@ -51,7 +51,7 @@ export class ContactService {
     console.log('Service: --- HTTP GET API Call Initiated ---');
     return this.http.get<Contact[]>(this.apiUrl).pipe(
       map(data => data || []), // Ensure it returns an empty array if data is null/undefined
-      catchError((error: any) => {
+      catchError((error ) => {
         console.error('HTTP getContacts Error:', error);
         return throwError(() => new Error(error.message || 'Failed to fetch contacts from JSON server.'));
       })
@@ -65,7 +65,7 @@ export class ContactService {
   public getContactById(id: string): Observable<Contact> {
     return this.http.get<Contact>(`${this.apiUrl}/${id}`).pipe(
       map(data => data || {} as Contact),
-      catchError((error: any) => {
+      catchError((error) => {
         console.error('HTTP getContactById Error:', error);
         return throwError(() => new Error(error.message || 'Failed to fetch contact by ID.'));
       })
@@ -87,7 +87,7 @@ export class ContactService {
         this.revalidateContacts(); // Trigger revalidation after add
         return response;
       }),
-      catchError((error: any) => {
+      catchError((error ) => {
         console.error('HTTP addContact Error:', error);
         return throwError(() => new Error(error.message || 'Failed to add contact.'));
       })
@@ -103,7 +103,7 @@ export class ContactService {
         this.revalidateContacts(); // Trigger revalidation after update
         return response;
       }),
-      catchError((error: any) => {
+      catchError((error) => {
         console.error('HTTP updateContact Error:', error);
         return throwError(() => new Error(error.message || 'Failed to update contact.'));
       })
@@ -118,7 +118,7 @@ export class ContactService {
         this.revalidateContacts(); // Trigger revalidation after delete
         return response; // Or just `return {} as Contact;` if you don't need the deleted object back
       }),
-      catchError((error: any) => {
+      catchError((error) => {
         console.error('HTTP deleteContact Error:', error);
         return throwError(() => new Error(error.message || 'Failed to delete contact.'));
       })

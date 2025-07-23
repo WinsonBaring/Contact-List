@@ -2,9 +2,9 @@
     <form [formGroup]="form" (ngSubmit)="variant() === 'add' ? onSubmitAddContact() : onSubmitUpdateContact()"
         aria-labelledby="form-title">
 
-        <div class="flex flex-col mb-4">
+        <div class="flex flex-col mb-3">
 
-            <p class="py-0 my-0">Name</p>
+            <p class="pb-1">Name</p>
             <mat-form-field appearance="outline" class="wide-field" aria-label="Name">
                 <input matInput formControlName="name" />
                 @if(form.get('name')?.hasError('required') && form.get('name')?.touched) {
@@ -13,9 +13,9 @@
             </mat-form-field>
         </div>
 
-        <div class="flex flex-col mb-4">
+        <div class="flex flex-col mb-3">
 
-            <p class="py-0 my-0">Contact Number</p>
+            <p class="pb-1">Contact Number</p>
             <mat-form-field appearance="outline" class=" wide-field" aria-label="Contact Number">
                 <input matInput formControlName="contactNumber" />
                 @if(form.get('contactNumber')?.hasError('required') && form.get('contactNumber')?.touched) {
@@ -26,9 +26,9 @@
             </mat-form-field>
 
         </div>
-        <div class="flex flex-col">
+        <div class="flex flex-col mb-2">
 
-            <p class="py-0 my-0">Email Address</p>
+            <p class="pb-1">Email Address</p>
             <mat-form-field appearance="outline" class="mb-3 wide-field w-full" aria-label="Email Address">
                 <input matInput formControlName="email" />
                 @if(form.get('email')?.hasError('required') && form.get('email')?.touched) {

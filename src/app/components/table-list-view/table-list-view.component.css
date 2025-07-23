@@ -1,16 +1,23 @@
 .table-list-custom-underline {
-    text-decoration: underline;
-    text-underline-offset: 2px;
-    text-decoration-color: #666666;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: #666666;
 }
-.custom_font{
-    font-size: 14px;
-    font-weight: 400;
+
+.custom_font {
+  font-size: 14px;
+  font-weight: 400;
 }
+
 table tbody tr:not(:last-child) td {
-    border-bottom: 1px solid theme('colors.gray.200'); /* Re-apply the border you want */
-  }
-  .custom_style{
-    background-color: #4f0077;
-    color: white;
-  }
+  border-bottom: 1px solid theme('colors.gray.200');
+  /* Re-apply the border you want */
+}
+
+.custom_style {
+  background-color: #4f0077;
+  color: white;
+}
+#custom_bg{
+  background: #ffffff;
+}

@@ -11,7 +11,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   templateUrl: './not-found.component.html',
   styleUrl: './not-found.component.css'
 })
-export class NotFoundComponent { // Add OnDestroy for clarity
+export class NotFoundComponent { 
 
   private router = inject(Router);
   goToHomePage(): void {

@@ -15,15 +15,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 })
 export class ContactInfoIdComponent {
   user_id = inject(ActivatedRoute).snapshot.params['user_id'];
-  
   contactService = inject(ContactService);
   contact = toSignal(this.contactService.getContactById(this.user_id),{initialValue:{} as Contact});
 
-  destroyRef = inject(DestroyRef);
-  // ngOnInit() {
-  //   const subscription = this.contactService.getContact(this.user_id).subscribe((contact) => {
-  //     this.contact = contact;
-  //   });
-  //   this.destroyRef.onDestroy(() => subscription.unsubscribe());
-  // }
 }
