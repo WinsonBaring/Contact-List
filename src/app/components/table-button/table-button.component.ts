@@ -4,6 +4,7 @@ import { DeleteContactComponent } from '@/components/delete-contact/delete-conta
 import { ContactFormComponent } from '../contact-form/contact-form.component';
 import { MatIconModule } from '@angular/material/icon';
 import { withDebugTracing } from '@angular/router';
+import { Contact } from '@/service/contact.service';
 @Component({
   selector: 'app-table-button',
   imports: [MatIconModule],

@@ -56,13 +56,6 @@ export class ContactFormComponent {
   }
 
 
-  isValidEmail() {
-    const value = this.form.get('email')?.value;
-    const generalEmailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    const comEmailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.com$/;
-    return generalEmailPattern.test(value) && comEmailPattern.test(value);
-  }
-
   onSubmitUpdateContact(): void {
     if (this.form.valid) {
       // console.log('is this it?',this.contact().id);

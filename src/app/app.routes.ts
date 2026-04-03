@@ -15,10 +15,6 @@ export const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'contact-info',
-    component: ContactInfoIdComponent
-  },
-  {
     path: 'contact-info/:user_id',
     component: ContactInfoIdComponent
   },

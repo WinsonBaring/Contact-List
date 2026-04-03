@@ -13,7 +13,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 })
 export class NotFoundComponent { 
 
-  private router = inject(Router);
+  private router: Router = inject(Router);
   goToHomePage(): void {
     this.router.navigate(['/home']);
   }
